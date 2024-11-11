@@ -4,8 +4,9 @@ const population = [...document.querySelectorAll('span.population')].map(
   (el) => +el.textContent.replace(/,/g, ''),
 );
 
-const total = population.reduce((a, b) => a + b);
-const average = Math.floor(total / population.length);
+const total = population.reduce((a, b) => a + b, 0);
+const average =
+  population.length > 0 ? Math.floor(total / population.length) : 0;
 
 const replaceCalculateIt = (classSelector, value) => {
   document.querySelector(classSelector).textContent =
